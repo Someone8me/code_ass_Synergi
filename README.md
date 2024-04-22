@@ -29,7 +29,10 @@ composer install
 npm install
 ```
 
-4. Copy the .env.example file and rename it to .env. Update the database connection details.
+4. Copy the .env.example file and rename it to .env. Update the database connection details and set new APP_KEY.
+```
+php artisan key:generate
+```
 5. Run database migrations and seeders:
 ```
 php artisan migrate --seed
@@ -40,7 +43,7 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-7. Access the application in your web browser at http://localhost:8000
+7. Access the application in your web browser at http://localhost:8000 or http://127.0.0.1:8000
 
 ## Testing
 For testing, this project utilizes PHPUnit. To run the tests, execute the following command:
