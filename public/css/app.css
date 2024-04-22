@@ -1,0 +1,131 @@
+@import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap);
+/*
+    Modify a specific size and return as percent or px
+*/
+/* Strip the px,em,% unit from number */
+/*
+  px to percentage
+  for that peskey design elements thats floating in a specific point in space
+  */
+/*
+// Add `$unit` to `$value`
+//
+// @param {Number} $value - Value to add unit to
+// @param {String} $unit - String representation of the unit
+//
+// @return {Number} - `$value` expressed in `$unit`
+*/
+/*
+http://thesassway.com/intermediate/mixins-for-semi-transparent-colors
+*/
+body {
+  background-color: #eaeaea;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: #000000;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+.wrapper .page_container {
+  width: 1280px;
+  border: 1px solid #818386;
+  border-width: 0 1px 0 1px;
+  background-color: #FFFFFF;
+}
+.wrapper .page_container header {
+  padding: 30px 30px;
+}
+.wrapper .page_container header h1, .wrapper .page_container header h2, .wrapper .page_container header h3, .wrapper .page_container header h4 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+.wrapper .page_container_content {
+  padding: 0 30px 30px 30px;
+}
+.wrapper--float_box {
+  align-items: center;
+}
+.wrapper--float_box .page_container {
+  width: 800px;
+  border: 1px solid #818386;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 15px;
+}
+@media screen and (max-width: 1280px) {
+  .wrapper .page_container {
+    width: 100%;
+    border: none;
+  }
+  .wrapper--float_box {
+    align-items: center;
+  }
+  .wrapper--float_box .page_container {
+    width: 90%;
+    border: 1px solid #818386;
+  }
+}
+
+.basicform .input_field {
+  display: flex;
+  flex-direction: column;
+  padding: 7px 0 15px 0;
+}
+.basicform .input_field label {
+  padding-bottom: 7px;
+}
+.basicform .input_field input, .basicform .input_field textarea {
+  border: 1px solid #818386;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  width: 100%;
+  padding: 7px;
+  font-family: "Nunito", sans-serif;
+}
+.basicform .input_field textarea {
+  min-height: 300px;
+}
+.basicform .input_field .field_error {
+  color: #b62467;
+  font-style: italic;
+  font-size: 12px;
+  padding: 7px 0;
+  margin: 0 0 0 0;
+}
+.basicform_actions ul {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+.basicform_actions ul li {
+  display: inline-block;
+}
+.basicform_actions ul li button {
+  display: inline-block;
+  color: #FFFFFF;
+  font-size: 16px;
+  border: 1px solid #e5e5e5;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 22px;
+  font-weight: 600;
+  background-color: #0072bc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.basicform_actions ul li button:hover {
+  background-color: #818386;
+  color: #FFFFFF;
+  border-color: transparent;
+}

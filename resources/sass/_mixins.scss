@@ -1,0 +1,96 @@
+
+@mixin breakWidth($size){
+    @media screen and (max-width: #{$size}px){ @content; }
+}
+@mixin breakPrint(){
+    @media print { @content; }
+}
+@mixin breakHeight($size){
+    @media screen and (max-height: #{$size}px){ @content; }
+}
+@mixin breakPrint() {
+    @media print { @content; }
+}
+
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+
+
+
+/*
+    Modify a specific size and return as percent or px
+*/
+@function sizeMod($modValue, $perc, $initialValue) {
+    $value: $modValue*$initialValue;
+    @if $perc {
+        $value: strip-unit($value);
+        $value: percentage( $value/100 );
+    }
+    @return $value; 
+}
+
+/* Strip the px,em,% unit from number */
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+/*
+  px to percentage
+  for that peskey design elements thats floating in a specific point in space
+  */
+@function pxtopercent($target, $parent: 16) {
+    @return percentage($target / $parent);
+}
+
+/*
+// Add `$unit` to `$value`
+//
+// @param {Number} $value - Value to add unit to
+// @param {String} $unit - String representation of the unit
+//
+// @return {Number} - `$value` expressed in `$unit`
+*/
+@function to-length($value, $unit) {
+    $units: ('px': 1px, 'cm': 1cm, 'mm': 1mm, '%': 1%, 'ch': 1ch, 'pc': 1pc, 'in': 1in, 'em': 1em, 'rem': 1rem, 'pt': 1pt, 'ex': 1ex, 'vw': 1vw, 'vh': 1vh, 'vmin': 1vmin, 'vmax': 1vmax);
+
+    @if not index(map-keys($units), $unit) {
+        $_: log('Invalid unit `#{$unit}`.');
+    }
+
+    @return $value * map-get($units, $unit);
+}
+
+
+
+
+
+
+/*
+http://thesassway.com/intermediate/mixins-for-semi-transparent-colors
+*/
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}
+
+@function pxtopercent($target, $parent: 16) {
+  @return percentage($target / $parent);
+}
+$fullPageWidth: 1920;
+$sectionHeight: 900;

@@ -1,0 +1,57 @@
+.basicform {
+    .input_field {
+        display:flex;
+        flex-direction: column;
+        padding: $pad_sizeSS 0 $pad_sizeS 0;
+        label {
+            padding-bottom: $pad_sizeSS;
+        }
+        input, textarea {
+            border: 1px solid $borderGrey;
+            border-radius: 5px;
+            background-color: $white;
+            width: 100%;
+            padding: $pad_sizeSS;
+            font-family: $font-family-sans-serif;
+        }
+        textarea {
+            min-height: 300px;
+        }
+        .field_error {
+            color: $projPINK;
+            font-style: italic;
+            font-size: 12px;
+            padding: $pad_sizeSS 0;
+            margin: 0 0 0 0;
+        }
+    }
+
+
+    &_actions {
+        ul {
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            li {
+                display: inline-block;
+                button {
+                    display: inline-block;
+                    color: $white;
+                    font-size: 16px;
+                    border: 1px solid #e5e5e5;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 22px;
+                    font-weight: 600;
+                    background-color: $projBLUE;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    &:hover {
+                        background-color: $projGREY;
+                        color: $white;
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
